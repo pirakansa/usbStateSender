@@ -5,7 +5,7 @@ tasks:
     desc: Build debug artifacts
 
   run:
-    run: RUST_LOG=debug cargo run
+    run: RUST_LOG=debug cargo run -- --help
     desc: Run the usbStateSender binary
 
   fmt:
