@@ -1,0 +1,1 @@
+ACTION=="add", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="2e8a", ATTRS{idProduct}=="00a0", SYMLINK+="pico-inkpack-status", TAG+="systemd", ENV{SYSTEMD_WANTS}+="usb-state-sender-refresh@%k.service"

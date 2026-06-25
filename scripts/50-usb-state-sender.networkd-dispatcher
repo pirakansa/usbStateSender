@@ -1,0 +1,4 @@
+#!/bin/sh
+set -eu
+
+systemctl start usb-state-sender-refresh.service
