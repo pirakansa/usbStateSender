@@ -6,7 +6,7 @@ tasks:
 
   run:
     run: RUST_LOG=debug cargo run
-    desc: Run the hello world binary
+    desc: Run the usbStateSender binary
 
   fmt:
     run: cargo fmt --all
@@ -43,7 +43,7 @@ tasks:
 
   release-archives:
     depends_on: [release-build]
-    run: tar --gzip --create --directory=target/release --file=./cli-template.tar.gz cli-template
+    run: tar --gzip --create --directory=target/release --file=./usb-state-sender.tar.gz usb-state-sender
     desc: Archive the release binary
 
   release:

@@ -1,7 +1,7 @@
 # usbStateSender
 
-This repository is a minimal Rust template that prints Hello, world!.
-It keeps the project structure intentionally small so it can be used as a clean starting point.
+This repository contains the Rust CLI for `usbStateSender`.
+The current executable is a small placeholder that prints the tool name while the project is being built out.
 
 ## Setup
 
@@ -24,12 +24,12 @@ vorbere run build
 
 ## Project Structure
 
-- `src/main.rs`: prints Hello, world!
+- `src/main.rs`: prints `usbStateSender`
 - `tests/`: smoke test for the compiled binary
 - `vorbere.yaml`: local development tasks
 
 ## Expected Output
 
 ```text
-Hello, world!
+usbStateSender
 ```
