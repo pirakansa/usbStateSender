@@ -1,4 +1,7 @@
 version: 1
+vars:
+  PROJECT_NAME: "usb-state-sender"
+
 tasks:
   build:
     run: cargo build --locked
@@ -37,14 +40,24 @@ tasks:
     run: cargo clean
     desc: Clean build artifacts
 
+  linux-amd64:
+    run: cargo build --locked --release --target x86_64-unknown-linux-gnu
+    desc: Build release binary for Linux amd64
+
+  linux-arm64:
+    run: cargo build --locked --release --target aarch64-unknown-linux-gnu
+    desc: Build release binary for Linux arm64
+
   release-build:
-    run: cargo build --locked --release
-    desc: Build release binary
+    depends_on: [linux-amd64, linux-arm64]
+    desc: Build all release binaries
 
   release-archives:
     depends_on: [release-build]
-    run: tar --gzip --create --directory=target/release --file=./usb-state-sender.tar.gz usb-state-sender
-    desc: Archive the release binary
+    run: |
+      tar --gzip --create --directory=target/x86_64-unknown-linux-gnu/release --file=./${{ .vars.PROJECT_NAME }}_linux-amd64.tar.gz ${{ .vars.PROJECT_NAME }}
+      tar --gzip --create --directory=target/aarch64-unknown-linux-gnu/release --file=./${{ .vars.PROJECT_NAME }}_linux-arm64.tar.gz ${{ .vars.PROJECT_NAME }}
+    desc: Archive release binaries
 
   release:
     depends_on: [release-archives]

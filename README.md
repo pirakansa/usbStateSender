@@ -28,9 +28,9 @@ cargo run -- "IP: 192.0.2.10"
 
 - Show CLI help: `vorbere run run`
 - Test: `vorbere run test`
-- Format: `vorbere run fmt`
-- Lint: `vorbere run clippy`
+- Check formatting and lints: `vorbere run check`
 - CI-equivalent checks: `vorbere run ci`
+- Create Linux amd64 and arm64 release archives: `vorbere run release`
 
 ## Documentation
 
